@@ -115,3 +115,15 @@ registry:
     secret: gitlab-registry-storage
     key: storage
     extraKey: gcs.json
+
+omniauth:
+  allow_single_sign_on: ["saml"]
+  auto_link_ldap_user: true
+  block_auto_created_users: true
+  providers:
+  - name: 'google_oauth2'
+    app_id: ${GOOGLE_OAUTH_APP_ID}
+    app_secret: ${GOOGLE_OAUTH_APP_SECRET}
+    args:
+      access_type: 'offline',
+      approval_prompt: ''

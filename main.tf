@@ -358,13 +358,15 @@ data "template_file" "helm_values" {
   template = "${file("${path.module}/values.yaml.tpl")}"
 
   vars = {
-    DOMAIN                = local.domain
-    INGRESS_IP            = local.gitlab_address
-    DB_PRIVATE_IP         = google_sql_database_instance.gitlab_db.private_ip_address
-    REDIS_PRIVATE_IP      = google_redis_instance.gitlab.host
-    PROJECT_ID            = var.project_id
-    CERT_MANAGER_EMAIL    = var.certmanager_email
-    GITLAB_RUNNER_INSTALL = var.gitlab_runner_install
+    DOMAIN                  = local.domain
+    INGRESS_IP              = local.gitlab_address
+    DB_PRIVATE_IP           = google_sql_database_instance.gitlab_db.private_ip_address
+    REDIS_PRIVATE_IP        = google_redis_instance.gitlab.host
+    PROJECT_ID              = var.project_id
+    CERT_MANAGER_EMAIL      = var.certmanager_email
+    GITLAB_RUNNER_INSTALL   = var.gitlab_runner_install
+    GOOGLE_OAUTH_APP_ID     = var.google_auth_app_id
+    GOOGLE_OAUTH_APP_SECRET = var.google_auth_app_secret
   }
 }
 

@@ -18,6 +18,12 @@ variable "project_id" {
   description = "GCP Project to deploy resources"
 }
 
+variable "google_auth_app_id" {
+}
+
+variable "google_auth_app_secret" {
+}
+
 variable "domain" {
   description = "Domain for hosting gitlab functionality (ie mydomain.com would access gitlab at gitlab.mydomain.com)"
   default     = ""
